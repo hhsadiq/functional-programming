@@ -1,6 +1,6 @@
 import { FORM_DIRECTIVES } from '@angular/common';
 import { Component } from '@angular/core';
-
+import * as _ from 'lodash';
 import { NameListService } from '../shared/index';
 
 /**
@@ -32,6 +32,7 @@ export class HomeComponent {
   addName(): boolean {
     this.nameListService.add(this.newName);
     this.newName = '';
+    _.times(12, n => console.log(n));
     return false;
   }
 
