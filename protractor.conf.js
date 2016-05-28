@@ -1,5 +1,5 @@
 const config = {
-  baseUrl: 'http://localhost:5555/',
+  baseUrl: 'http://localhost:5566/',
 
   specs: [
     './dist/dev/**/*.e2e-spec.js'

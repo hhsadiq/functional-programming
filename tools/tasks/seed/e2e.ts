@@ -19,7 +19,7 @@ class Protractor {
  */
 export = (done: any) => {
   new Protractor()
-    .server(5555, './dist/prod')
+    .server(5566, './dist/prod')
     .then((server: any) => {
       gulp
         .src('./dist/dev/**/*.e2e-spec.js')
