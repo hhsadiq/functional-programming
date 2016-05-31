@@ -2,6 +2,7 @@ import { FORM_DIRECTIVES } from '@angular/common';
 import { Component } from '@angular/core';
 import * as _ from 'lodash';
 import { NameListService } from '../shared/index';
+import { Array } from '../lodash/index';
 
 /**
  * This class represents the lazy loaded HomeComponent.
@@ -23,7 +24,9 @@ export class HomeComponent {
    *
    * @param {NameListService} nameListService - The injected NameListService.
    */
-  constructor(public nameListService: NameListService) {}
+  constructor(public nameListService: NameListService) {
+    Array.concat();
+  }
 
   /**
    * Calls the add method of the NameListService with the current newName value of the form.

@@ -21,10 +21,6 @@ import { NameListService, NavbarComponent, ToolbarComponent } from './shared/ind
   {
     path: '/',
     component: HomeComponent
-  },
-  {
-    path: '/about',
-    component: AboutComponent
   }
 ])
 export class AppComponent {}
