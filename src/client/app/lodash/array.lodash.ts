@@ -31,6 +31,8 @@ export class Array {
   }
 
   static differenceBy() {
+    //it makes two new arrays according to criteria of iteratee function, compares them
+    //just like difference, and return result form original array.
     let array = ['ali', 'hassaan', 'ahmed'];
     let values = ['salman', 'ahmed'];
     console.log(array);
@@ -40,6 +42,9 @@ export class Array {
   }
 
   static differenceWith() {
+    //it takes comparator function which gets values from array and values
+    //if comparator returns true, the corresponding value from array will be
+    //dropped
     let array = [4, 5, 6, 34, 2];
     let values = [8, 36, 2, 16];
     console.log(array);
