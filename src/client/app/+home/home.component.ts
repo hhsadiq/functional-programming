@@ -25,7 +25,7 @@ export class HomeComponent {
    * @param {NameListService} nameListService - The injected NameListService.
    */
   constructor(public nameListService: NameListService) {
-    Array.dropRight();
+    Array.fill();
   }
 
   /**

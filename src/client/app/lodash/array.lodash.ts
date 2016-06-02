@@ -81,7 +81,7 @@ export class Array {
     console.log(array);
     console.log(values);
     //exclude all values from array whose square is present in values.
-    console.log(_.differenceWith(array, values, (arr:any, val:any) => arr*arr === val));
+    console.log(_.differenceWith(array, values, (arr:any, val:any) => arr * arr === val));
   }
 
   /**
@@ -108,5 +108,85 @@ export class Array {
     console.log(_.dropRight(array, 0));
     console.log(_.dropRight(array, -1));
     console.log(_.dropRight(array, 9));
+  }
+
+  /**
+   * Creates a slice of array excluding elements dropped from the end.
+   * Elements are dropped until predicate returns falsey.
+   * The predicate is invoked with three arguments: (value, index, array).
+   */
+  static dropRightWhile() {
+    // keep dropping elements from right as long as predicate returns true,
+    // as soon as it returns false, stop dropping elements,
+    // and return remaining slice of array
+    let array = [4, 5, 6, 34, 2];
+    console.log(array);
+    console.log(_.dropRightWhile(array, n => n % 2 === 0));
+    console.log(_.dropRightWhile(array, n => n % 17 === 0));
+    // shorthand does not work with primitive values
+    console.log(_.dropRightWhile(array, [2]));
+    let users = [
+      {'user': 'barney', 'active': {a: true}},
+      {'user': 'fred', 'active': {a: false}},
+      {'user': 'pebbles', 'active': {a: false}}
+    ];
+    console.log(users);
+    console.log(_.dropRightWhile(users, o => !o.active.a));
+    // The `_.matches` iteratee shorthand.
+    console.log(_.dropRightWhile(users, {'user': 'pebbles', 'active': {a: false}}));
+    console.log(_.dropRightWhile(users, {'user': 'fred', 'active.a': false}));
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.dropRightWhile(users, ['active.a', false]));
+    // The `_.property` iteratee shorthand.
+    console.log(_.dropRightWhile(users, 'active.a'));
+  }
+
+  /**
+   * Creates a slice of array excluding elements dropped from the beginning.
+   * Elements are dropped until predicate returns falsey.
+   * The predicate is invoked with three arguments: (value, index, array).
+   */
+  static dropWhile() {
+    // keep dropping elements from left as long as predicate returns true,
+    // as soon as it returns false, stop dropping elements,
+    // and return remaining slice of array
+    let array = [4, 5, 6, 34, 2];
+    console.log(array);
+
+    console.log(_.dropWhile(array, n => n % 2 === 0));
+
+    console.log(_.dropWhile(array, n => n % 17 === 0));
+    // shorthand does not work with primitive values
+    console.log(_.dropWhile(array, [2]));
+    let users = [
+      {'user': 'barney', 'active': {a: true}},
+      {'user': 'fred', 'active': {a: false}},
+      {'user': 'pebbles', 'active': {a: false}}
+    ];
+    console.log(users);
+    console.log(_.dropWhile(users, o => o.active.a));
+    // The `_.matches` iteratee shorthand.
+    console.log(_.dropWhile(users, {'user': 'barney', 'active': {a: true}}));
+    console.log(_.dropWhile(users, {'user': 'fred', 'active.a': false}));
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.dropWhile(users, ['active.a', true]));
+    // The `_.property` iteratee shorthand.
+    console.log(_.dropWhile(users, 'active.a'));
+  }
+
+  /**
+   * Fills elements of array with value from start up to, but not including, end.
+   */
+  static fill() {
+    let array = [1, 2, 3];
+    console.log(array);
+    console.log(_.fill(array, 'a'));
+
+    //this statement is valid in js, but not in ts
+    //console.log(_.fill(Array(100), 2));
+
+    array = [4, 6, 8, 10, 3, 5, 6, 7, 8];
+    console.log(array);
+    console.log(_.fill(array, '*', 3, 5));
   }
 }
