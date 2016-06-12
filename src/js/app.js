@@ -1,8 +1,3 @@
-import Foo from './foo';
+import {Array} from './utils/lodash/index';
 
-let foo = new Foo();
-
-let textNode = document.createTextNode(foo.doSomething());
-document.body.appendChild(textNode);
-
-export var hello = 'es6';
+Array.fill();

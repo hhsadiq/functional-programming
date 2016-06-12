@@ -8,10 +8,12 @@ System.config({
   },
   paths: {
     "github:*": "lib/github/*",
-    "npm:*": "lib/npm/*"
+    "npm:*": "lib/npm/*",
+    '*': '../node_modules/*'
   },
 
   map: {
+    "lodash": "lodash/index.js",
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "core-js": "npm:core-js@1.2.6",

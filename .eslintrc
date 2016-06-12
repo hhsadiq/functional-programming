@@ -13,6 +13,13 @@
   },
 
   "rules": {
-    "semi": [2, "always"]
+    "semi": [2, "always"],
+    "require-jsdoc": [2, {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": false
+      }
+    }]
   }
 }
