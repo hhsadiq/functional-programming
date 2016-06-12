@@ -243,4 +243,31 @@ export class Array {
 
     console.log(_.findIndex(numberObjs, [6, false])); // 2
   }
+
+  /**
+   * This method is like _.findIndex except that it iterates over elements
+   * of collection from right to left.
+   */
+  static findIndexLast() {
+    let users = [
+      { 'user': 'barney',  'active': true },
+      { 'user': 'fred',    'active': false },
+      { 'user': 'pebbles', 'active': false }
+    ];
+
+    console.log(_.findLastIndex(users, o => o.user === 'pebbles'));
+    // → 2
+
+    // The `_.matches` iteratee shorthand.
+    console.log(_.findLastIndex(users, { 'user': 'barney', 'active': true }));
+    // → 0
+
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.findLastIndex(users, ['active', false]));
+    // → 2
+
+    // The `_.property` iteratee shorthand.
+    console.log(_.findLastIndex(users, 'active'));
+    // → 0
+  }
 }
