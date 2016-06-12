@@ -7,7 +7,7 @@ export class Array {
    * be the remaining elements.
    * @returns {void}
    */
-  static chunk () {
+  static chunk() {
     let array = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
     console.log(array);
     console.log(_.chunk(array, 2));
@@ -19,7 +19,7 @@ export class Array {
    * The values false, null, 0, "", undefined, and NaN are falsey.
    * @returns {void}
    */
-  static compact () {
+  static compact() {
     let array = [0, 1, false, 2, '', 3, null, 'undefined'];
     console.log(array);
     console.log(_.compact(array));
@@ -30,7 +30,7 @@ export class Array {
    * arrays and/or values.
    * @returns {void}
    */
-  static concat () {
+  static concat() {
     var array = [1, 34, 43];
     // var other = _.concat(array, [3], [4, 3, 5], 34);
     var other = _.concat(array, [3], [4, 3, 5]);
@@ -45,7 +45,7 @@ export class Array {
    * occur in the first array.
    * @returns {void}
    */
-  static difference () {
+  static difference() {
     let array = ['ali', 'hassaan', 'ahmed', null];
     let values = [null, 'salman', 'ahmed'];
     console.log(array);
@@ -60,7 +60,7 @@ export class Array {
    * The iteratee is invoked with one argument: (value).
    * @returns {void}
    */
-  static differenceBy () {
+  static differenceBy() {
     // it makes two new arrays according to criteria of iteratee function, compares them
     // just like difference, and return result form original array.
     let array = ['ali', 'hassaan', 'ahmed'];
@@ -78,7 +78,7 @@ export class Array {
    * (arrVal, othVal).
    * @returns {void}
    */
-  static differenceWith () {
+  static differenceWith() {
     // it takes comparator function which gets values from array and values
     // if comparator returns true, the corresponding value from array will be
     // dropped
@@ -94,7 +94,7 @@ export class Array {
    * Creates a slice of array with n elements dropped from the beginning.
    * @returns {void}
    */
-  static drop () {
+  static drop() {
     let array = [4, 5, 6, 34, 2];
     console.log(array);
     console.log(_.drop(array));
@@ -108,7 +108,7 @@ export class Array {
    * Creates a slice of array with n elements dropped from the end.
    * @returns {void}
    */
-  static dropRight () {
+  static dropRight() {
     let array = [4, 5, 6, 34, 2];
     console.log(array);
     console.log(_.dropRight(array));
@@ -124,7 +124,7 @@ export class Array {
    * The predicate is invoked with three arguments: (value, index, array).
    * @returns {void}
    */
-  static dropRightWhile () {
+  static dropRightWhile() {
     // keep dropping elements from right as long as predicate returns true,
     // as soon as it returns false, stop dropping elements,
     // and return remaining slice of array
@@ -156,7 +156,7 @@ export class Array {
    * The predicate is invoked with three arguments: (value, index, array).
    * @returns {void}
    */
-  static dropWhile () {
+  static dropWhile() {
     // keep dropping elements from left as long as predicate returns true,
     // as soon as it returns false, stop dropping elements,
     // and return remaining slice of array
@@ -188,7 +188,7 @@ export class Array {
    * Fills elements of array with value from start up to, but not including, end.
    * @returns {void}
    */
-  static fill () {
+  static fill() {
     let array = [1, 2, 3];
     console.log(array);
     console.log(_.fill(array, 'a'));
@@ -199,5 +199,48 @@ export class Array {
     array = [4, 6, 8, 10, 3, 5, 6, 7, 8];
     console.log(array);
     console.log(_.fill(array, '*', 3, 5));
+  }
+
+  /**
+   * This method is like _.find except that it returns the index of the
+   * first element predicate returns truthy for instead of the element itself.
+   */
+  static findIndex() {
+    let users = [
+      { 'user': 'barney', 'active': false },
+      { 'user': 'fred', 'active': false },
+      { 'user': 'pebbles', 'active': true }
+    ];
+
+    console.log(_.findIndex(users, o => o.user === 'barney'));
+    // → 0
+
+    // The `_.matches` iteratee shorthand.
+    console.log(_.findIndex(users, { 'user': 'fred', 'active': false }));
+    // → 1
+
+    // The `_.matchesProperty` iteratee shorthand.
+    console.log(_.findIndex(users, ['active', false]));
+    // → 0
+
+    // The `_.property` iteratee shorthand.
+    console.log(_.findIndex(users, 'active'));
+    // → 2
+
+    let numbers = [1, 2, 6, 1];
+    let numberObjs = [{1: {a: {b: false, c: true}}}, {2: 'som'}, {6: false}, {1: a => a}];
+    console.log(_.findIndex(numbers, num => num === 6));
+
+    console.log(_.findIndex(numberObjs, {'b': false})); // -1
+    console.log(_.findIndex(numberObjs, ['b', false])); // -1
+    console.log(_.findIndex(numberObjs, ['b'])); // -1
+
+    console.log(_.findIndex(numberObjs, {'1.a.b': false})); // -1
+    console.log(_.findIndex(numberObjs, ['1.a.b', false])); // 0
+    console.log(_.findIndex(numberObjs, ['1.a.c'])); // -1
+
+    // only _.mathcesProperty can lookup deeply nested objects in array
+
+    console.log(_.findIndex(numberObjs, [6, false])); // 2
   }
 }
