@@ -15,3 +15,9 @@ So we will learn higher order functions of following libraries.
 # Process of learning
 
 To learn and internalize higher order functions, each method of above libraries will be used to solve some real world problem.  
+
+# Repository usage guideline
+
+## Using jspm to handle JavaScript modules
+
+http://blog.redpelicans.com/using-jspm-to-handle-javascript-modules/

@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 export class General {
 
@@ -7,6 +7,6 @@ export class General {
    * @returns {*}
    */
   static first () {
-    return _.uniq([]);
+    return _.uniq([1, 1]);
   }
 }
