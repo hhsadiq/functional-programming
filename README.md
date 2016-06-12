@@ -1,6 +1,6 @@
 # Learn functional programming using practical code
 
-Learn, exercise and practice functional programming concepts using ng2 based typescript.
+Learn, exercise and practice functional programming concepts using es6.
 
 ## 1. Higher order functions
 
@@ -17,6 +17,8 @@ So we will learn higher order functions of following libraries.
 To learn and internalize higher order functions, each method of above libraries will be used to solve some real world problem.  
 
 # Repository usage guideline
+
+This repo uses es6, jspm and System.js. 
 
 ## Using jspm to handle JavaScript modules
 
