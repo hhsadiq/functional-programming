@@ -248,7 +248,7 @@ export class Array {
    * This method is like _.findIndex except that it iterates over elements
    * of collection from right to left.
    */
-  static findIndexLast() {
+  static findLastIndex() {
     let users = [
       { 'user': 'barney',  'active': true },
       { 'user': 'fred',    'active': false },
@@ -270,4 +270,86 @@ export class Array {
     console.log(_.findLastIndex(users, 'active'));
     // → 0
   }
+
+  /**
+   * Flattens array a single level deep.
+   */
+  static flatten() {
+    let array = [1, [2, [3, [4]], 5]];
+    console.log(_.flatten(array));
+  }
+
+  /**
+   * Recursively flattens array.
+   */
+  static flattenDeep() {
+    let array = [1, [2, [3, [4]], 5]];
+    console.log(_.flattenDeep(array));
+    array = [[[[[[{b: 34}]]], {a: 34}]]];
+    console.log(_.flattenDeep(array));
+  }
+
+  /**
+   * Recursively flatten array up to depth times.
+   */
+  static flattenDepth() {
+    let array = [1, [2, [3, [4]], 5]];
+    console.log(_.flattenDepth(array, 30));
+    array = [[[[[[{b: 34}]]], {a: 34}]]];
+    console.log(_.flattenDepth(array, 2));
+  }
+
+  /**
+   * The inverse of _.toPairs; this method returns an object composed from key-value pairs.
+   */
+  static fromPairs() {
+    let array = [['fred', 30], ['barney', 40]];
+    console.log(_.fromPairs(array)); // Object {fred: 30, barney: 40}
+    array = [[23, 43], ['ab', 'ewriouwe'], [54]];
+    console.log(_.fromPairs(array)); // Object {23: 43, 54: undefined, ab: "ewriouwe"}
+  }
+
+  /**
+   * Gets the first element of array.
+   */
+  static head() {
+    console.log(_.head([[2, [3, [4]], 5], 1])); // [2, Array[2], 5]
+  }
+
+  /**
+   * Gets the index at which the first occurrence of value is found
+   * in array using SameValueZero for equality comparisons.
+   * If fromIndex is negative, it’s used as the offset from the end of array.
+   * Arguments
+   * array (Array): The array to search.
+   * value (*): The value to search for.
+   * [fromIndex=0] (number): The index to search from.
+   */
+  static indexOf() {
+    console.log(_.indexOf([1, 2, 1, 2], 2));
+    // → 1
+
+    // Search from the `fromIndex`.
+    console.log(_.indexOf([1, 2, 1, 2], 2, 2));
+    // → 3
+
+    console.log(_.indexOf([1, 2, 1, 2], 34, 2)); // -1
+    console.log(_.indexOf([1, 2, 1, 2], 1, 1)); // 2
+    console.log(_.indexOf([1, 2, 1, 2], 1)); // 0
+    console.log(_.indexOf([1, 2, 1, 2], 2)); // 1
+  }
+
+  /**
+   * Gets all but the last element of array.
+   */
+  static initial() {
+    console.log(_.initial([1, 2, 1, 2])); // [1, 2, 1]
+    console.log(_.initial([1, 2, 1, 2, 34, 5, 'a', {a: 34}])); // [1, 2, 1, 2, 34, 5, "a"]
+  }
+
+  /**
+   * Creates an array of unique values that are included in
+   * all given arrays using SameValueZero for equality comparisons.
+   * The order of result values is determined by the order they occur in the first array.
+   */
 }
