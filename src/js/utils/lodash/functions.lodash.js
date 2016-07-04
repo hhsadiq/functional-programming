@@ -21,4 +21,11 @@ export class Functions {
     console.log('saving ', input.type);
     input.complete();
   }
+
+  static ary() {
+    console.log(_.map(['6', '8', '10'], (val, index) => parseInt(val, index)));
+    console.log(_.map(['6', '8', '10'], (val, index) => _.ary(parseInt, 1)(val, index)));
+    console.log(_.map(['6', '8', '10'], _.ary(parseInt, 1)));
+    // → [6, 8, 10]
+  }
 }

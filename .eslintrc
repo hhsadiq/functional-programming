@@ -14,13 +14,6 @@
 
   "rules": {
     "semi": [2, "always"],
-    "require-jsdoc": [2, {
-      "require": {
-        "FunctionDeclaration": true,
-        "MethodDefinition": true,
-        "ClassDeclaration": false
-      }
-    }],
     "space-before-function-paren": [0],
     "no-multi-spaces": [0]
   }
