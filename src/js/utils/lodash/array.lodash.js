@@ -352,4 +352,13 @@ export class Array {
    * all given arrays using SameValueZero for equality comparisons.
    * The order of result values is determined by the order they occur in the first array.
    */
+  static findWhere() {
+    let users = [
+      { 'user': 'barney',  'active': true },
+      { 'user': 'fred',    'active': false },
+      { 'user': 'pebbles', 'active': false }
+    ];
+
+    console.log(_.find(users, { 'user': 'fred',    'active': false }));
+  }
 }

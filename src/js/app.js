@@ -1,3 +1,3 @@
-import {Array} from './utils/lodash/index';
+import {Functions} from './utils/lodash/index';
 
-Array.initial();
+Functions.after();
