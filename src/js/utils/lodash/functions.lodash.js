@@ -1,9 +1,6 @@
 import _ from 'lodash';
 
 export class Functions {
-  /**
-   *
-   */
   static after () {
     var saves = ['profile', 'settings'];
 
@@ -13,10 +10,6 @@ export class Functions {
     // → Logs 'done saving!' after the two async saves have completed.
   }
 
-  /**
-   *
-   * @param input
-   */
   static asyncSave(input) {
     console.log('saving ', input.type);
     input.complete();
@@ -27,5 +20,15 @@ export class Functions {
     console.log(_.map(['6', '8', '10'], (val, index) => _.ary(parseInt, 1)(val, index)));
     console.log(_.map(['6', '8', '10'], _.ary(parseInt, 1)));
     // → [6, 8, 10]
+  }
+
+  static before () {
+    var done = _.before(5, n => n);
+    var callDone = val => {
+      console.log('calling done', val);
+      console.log('calling before', done(val));
+    };
+    _.times(10, callDone);
+    // → Logs 'done saving!' after the two async saves have completed.
   }
 }
