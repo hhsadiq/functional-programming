@@ -18,6 +18,7 @@ export class Functions {
    * @param input
    */
   static asyncSave(input) {
-    console.log(input.complete());
+    console.log('saving ', input.type);
+    input.complete();
   }
 }
